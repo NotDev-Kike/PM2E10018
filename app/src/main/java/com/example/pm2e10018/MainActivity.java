@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupSpinner() {
-        String[] paises = {"Honduras (504)", "Costa Rica", "Guatemala (502)", "El Salvador", "Polses"};
+        String[] paises = {"Honduras", "Costa Rica", "Guatemala", "El Salvador", "Polses"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_dropdown_item_1line, paises);
         actvPais.setAdapter(adapter);
@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                     etNombre.getText().toString(),
                     etTelefono.getText().toString(),
                     etNota.getText().toString(),
-                    currentPhotoPath // Ahora incluye la ruta de la foto
+                    currentPhotoPath
             );
             db.contactoDao().insert(contacto);
             runOnUiThread(() -> {

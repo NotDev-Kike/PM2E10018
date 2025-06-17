@@ -19,21 +19,17 @@ public class ListaContactosActivity extends AppCompatActivity implements Contact
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_contactos);
 
-        // Configurar RecyclerView
         recyclerView = findViewById(R.id.recyclerViewContactos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Inicializar adaptador
         adapter = new ContactosAdapter(this);
         recyclerView.setAdapter(adapter);
 
-        // Configurar ViewModel
         contactoViewModel = new ViewModelProvider(this).get(ContactoViewModel.class);
         contactoViewModel.getAllContactos().observe(this, contactos -> {
             adapter.setContactos(contactos);
         });
 
-        // Configurar FloatingActionButton
         FloatingActionButton fab = findViewById(R.id.fabAgregarContacto);
         fab.setOnClickListener(view -> {
             startActivity(new Intent(this, AgregarContactoActivity.class));

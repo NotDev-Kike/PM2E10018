@@ -23,6 +23,6 @@
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/purple_500"
         app:tint="@color/white"
-        />  <!-- Properly closed here -->
+        />
 
 </RelativeLayout>

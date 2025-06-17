@@ -1,7 +1,7 @@
 package com.example.pm2e10018;
 
 import android.app.Application;
-import androidx.annotation.NonNull;  // Importación añadida
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import java.util.List;

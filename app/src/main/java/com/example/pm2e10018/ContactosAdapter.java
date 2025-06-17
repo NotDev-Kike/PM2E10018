@@ -28,7 +28,6 @@ public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.Cont
         this.listener = listener;
     }
 
-    // Método para actualizar la lista con DiffUtil para mejor rendimiento
     public void setContactos(List<Contacto> nuevosContactos) {
         DiffUtil.DiffResult result = DiffUtil.calculateDiff(new ContactoDiffCallback(this.contactos, nuevosContactos));
         this.contactos = new ArrayList<>(nuevosContactos);
@@ -53,7 +52,6 @@ public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.Cont
         return contactos.size();
     }
 
-    // ViewHolder optimizado
     static class ContactoViewHolder extends RecyclerView.ViewHolder {
         private final ImageView ivFoto;
         private final TextView tvNombre;
@@ -75,10 +73,8 @@ public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.Cont
             tvTelefono.setText(contacto.getTelefono());
             tvPais.setText(contacto.getPais());
 
-            // Cargar foto con manejo de errores
             loadContactPhoto(contacto.getFoto());
 
-            // Configurar listeners
             itemView.setOnClickListener(v -> listener.onItemClick(contacto));
             btnLlamar.setOnClickListener(v -> listener.onCallClick(contacto));
         }
@@ -100,7 +96,6 @@ public class ContactosAdapter extends RecyclerView.Adapter<ContactosAdapter.Cont
         }
     }
 
-    // Clase para comparar listas y optimizar actualizaciones
     private static class ContactoDiffCallback extends DiffUtil.Callback {
         private final List<Contacto> oldList, newList;
 

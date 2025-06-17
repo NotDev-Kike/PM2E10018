@@ -8,7 +8,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "contactos.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Sentencia SQL para crear la tabla de contactos
     private static final String CREATE_TABLE_CONTACTOS =
             "CREATE TABLE contactos (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT, " +

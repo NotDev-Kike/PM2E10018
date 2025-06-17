@@ -17,20 +17,15 @@ public class EditarContactoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_contacto);
 
-        // Inicializar la base de datos
         db = AppDatabase.getDatabase(this);
 
-        // Obtener el ID del contacto a editar
         contactoId = getIntent().getIntExtra("contacto_id", -1);
 
-        // Inicializar vistas
         initViews();
 
-        // Cargar el contacto si tenemos un ID válido
         if (contactoId != -1) {
             cargarContacto(contactoId);
         } else {
-            // Si no hay ID, estamos creando un nuevo contacto
             contacto = new Contacto();
         }
     }
@@ -67,14 +62,12 @@ public class EditarContactoActivity extends AppCompatActivity {
     }
 
     public void guardarCambios(View view) {
-        // Validar campos obligatorios
         if (etNombre.getText().toString().trim().isEmpty() ||
                 etTelefono.getText().toString().trim().isEmpty()) {
             Toast.makeText(this, "Nombre y teléfono son obligatorios", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Crear o actualizar el objeto contacto
         if (contacto == null) {
             contacto = new Contacto();
         }
@@ -84,11 +77,9 @@ public class EditarContactoActivity extends AppCompatActivity {
         contacto.setPais(etPais.getText().toString().trim());
         contacto.setNota(etNota.getText().toString().trim());
 
-        // Guardar en base de datos
         new Thread(() -> {
             try {
                 if (contactoId == -1) {
-                    // Nuevo contacto
                     long newId = db.contactoDao().insert(contacto);
                     runOnUiThread(() -> {
                         Toast.makeText(EditarContactoActivity.this,
@@ -97,7 +88,6 @@ public class EditarContactoActivity extends AppCompatActivity {
                         finish();
                     });
                 } else {
-                    // Actualizar contacto existente
                     db.contactoDao().update(contacto);
                     runOnUiThread(() -> {
                         Toast.makeText(EditarContactoActivity.this,

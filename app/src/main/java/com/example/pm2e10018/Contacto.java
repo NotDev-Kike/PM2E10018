@@ -21,7 +21,6 @@ public class Contacto {
     private String nota;
     private String foto;
 
-    // Constructor sin parámetros (requerido por Room)
     public Contacto() {
         this.pais = "";
         this.nombre = "";
@@ -30,7 +29,6 @@ public class Contacto {
         this.foto = "";
     }
 
-    // Constructor con parámetros (para creación conveniente)
     public Contacto(@NonNull String pais, @NonNull String nombre,
                     @NonNull String telefono, String nota, String foto) {
         this.pais = pais;
@@ -40,7 +38,6 @@ public class Contacto {
         this.foto = foto != null ? foto : "";
     }
 
-    // --- Getters y Setters ---
     public int getId() {
         return id;
     }
@@ -92,7 +89,6 @@ public class Contacto {
         this.foto = foto != null ? foto : "";
     }
 
-    // --- Métodos útiles ---
     @Override
     public String toString() {
         return "Contacto{" +
@@ -105,7 +101,6 @@ public class Contacto {
                 '}';
     }
 
-    // Método para validar los campos obligatorios
     public boolean isValid() {
         return !nombre.isEmpty() && !telefono.isEmpty() && !pais.isEmpty();
     }

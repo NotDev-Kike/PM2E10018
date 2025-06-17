@@ -53,5 +53,4 @@ public class DatabaseManager {
         return contactos;
     }
 
-    // Otros métodos para actualizar, eliminar, etc.
 }

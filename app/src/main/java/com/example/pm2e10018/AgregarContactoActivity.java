@@ -1,7 +1,7 @@
 package com.example.pm2e10018;
 
-import android.graphics.Bitmap; // Importación añadida
-import android.graphics.BitmapFactory; // Importación añadida
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
